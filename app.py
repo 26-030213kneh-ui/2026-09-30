@@ -3,7 +3,7 @@ import streamlit.components.v1 as components
 
 
 # ============================================================
-# Streamlit 기본 설정
+# Streamlit 설정
 # ============================================================
 
 st.set_page_config(
@@ -36,10 +36,6 @@ GAME_HTML = r"""
 
 <style>
 
-/* ==========================================================
-   기본
-========================================================== */
-
 * {
     box-sizing: border-box;
 }
@@ -68,9 +64,7 @@ body {
     margin: 0 auto;
 
     padding:
-        8px
-        0
-        20px;
+        8px 0 20px;
 }
 
 
@@ -90,14 +84,12 @@ body {
     width: 100%;
 
     padding:
-        11px
-        13px;
+        11px 13px;
 
     background: #1e293b;
 
     border:
-        1px solid
-        #475569;
+        1px solid #475569;
 
     border-radius: 9px;
 
@@ -110,13 +102,12 @@ body {
 
 #playerName:focus {
 
-    border-color:
-        #38bdf8;
+    border-color: #38bdf8;
 }
 
 
 /* ==========================================================
-   정보창
+   정보
 ========================================================== */
 
 #info {
@@ -130,42 +121,32 @@ body {
 
     padding: 10px;
 
-    background:
-        #1e293b;
+    background: #1e293b;
 
     border-radius:
-        12px
-        12px
-        0
-        0;
+        12px 12px 0 0;
 
     text-align: center;
 }
 
 .info-item {
 
-    color:
-        #94a3b8;
+    color: #94a3b8;
 
-    font-size:
-        11px;
+    font-size: 11px;
 
-    font-weight:
-        bold;
+    font-weight: bold;
 }
 
 .info-value {
 
     display: block;
 
-    margin-top:
-        4px;
+    margin-top: 4px;
 
-    color:
-        white;
+    color: white;
 
-    font-size:
-        17px;
+    font-size: 17px;
 }
 
 
@@ -189,16 +170,13 @@ body {
         );
 
     border-left:
-        2px solid
-        #334155;
+        2px solid #334155;
 
     border-right:
-        2px solid
-        #334155;
+        2px solid #334155;
 
     border-bottom:
-        2px solid
-        #334155;
+        2px solid #334155;
 
     touch-action: none;
 
@@ -230,8 +208,7 @@ button {
     border-radius: 8px;
 
     padding:
-        10px
-        14px;
+        10px 14px;
 
     color: white;
 
@@ -244,32 +221,23 @@ button {
 
 button:active {
 
-    transform:
-        scale(0.96);
+    transform: scale(0.96);
 }
 
 #startBtn {
-
-    background:
-        #16a34a;
+    background: #16a34a;
 }
 
 #pauseBtn {
-
-    background:
-        #f59e0b;
+    background: #f59e0b;
 }
 
 #restartBtn {
-
-    background:
-        #7c3aed;
+    background: #7c3aed;
 }
 
 #rankingBtn {
-
-    background:
-        #db2777;
+    background: #db2777;
 }
 
 
@@ -279,20 +247,15 @@ button:active {
 
 #message {
 
-    min-height:
-        30px;
+    min-height: 30px;
 
-    margin-top:
-        9px;
+    margin-top: 9px;
 
-    text-align:
-        center;
+    text-align: center;
 
-    color:
-        #cbd5e1;
+    color: #cbd5e1;
 
-    font-size:
-        14px;
+    font-size: 14px;
 }
 
 
@@ -302,33 +265,24 @@ button:active {
 
 #item-help {
 
-    margin-top:
-        10px;
+    margin-top: 10px;
 
-    padding:
-        10px;
+    padding: 10px;
 
-    background:
-        #111827;
+    background: #111827;
 
     border:
-        1px solid
-        #334155;
+        1px solid #334155;
 
-    border-radius:
-        9px;
+    border-radius: 9px;
 
-    color:
-        #cbd5e1;
+    color: #cbd5e1;
 
-    font-size:
-        12px;
+    font-size: 12px;
 
-    line-height:
-        1.7;
+    line-height: 1.7;
 
-    text-align:
-        center;
+    text-align: center;
 }
 
 
@@ -340,21 +294,16 @@ button:active {
 
     display: none;
 
-    margin-top:
-        12px;
+    margin-top: 12px;
 
-    padding:
-        12px;
+    padding: 12px;
 
-    background:
-        #111827;
+    background: #111827;
 
     border:
-        1px solid
-        #334155;
+        1px solid #334155;
 
-    border-radius:
-        10px;
+    border-radius: 10px;
 }
 
 #rankingPanel h3 {
@@ -362,11 +311,9 @@ button:active {
     margin:
         0 0 10px;
 
-    color:
-        #facc15;
+    color: #facc15;
 
-    text-align:
-        center;
+    text-align: center;
 }
 
 .ranking-row {
@@ -374,68 +321,51 @@ button:active {
     display: grid;
 
     grid-template-columns:
-        42px
-        1fr
-        85px
-        55px;
+        42px 1fr 85px 55px;
 
     gap: 5px;
 
     padding:
-        8px
-        5px;
+        8px 5px;
 
     border-bottom:
-        1px solid
-        #1e293b;
+        1px solid #1e293b;
 
-    font-size:
-        13px;
+    font-size: 13px;
 }
 
 .ranking-row:last-child {
-
-    border-bottom:
-        none;
+    border-bottom: none;
 }
 
 .rank-number {
 
-    color:
-        #facc15;
+    color: #facc15;
 
-    font-weight:
-        bold;
+    font-weight: bold;
 }
 
 .rank-name {
 
-    overflow:
-        hidden;
+    overflow: hidden;
 
-    text-overflow:
-        ellipsis;
+    text-overflow: ellipsis;
 
-    white-space:
-        nowrap;
+    white-space: nowrap;
 }
 
 .rank-score {
 
-    color:
-        #38bdf8;
+    color: #38bdf8;
 
-    text-align:
-        right;
+    text-align: right;
 }
 
 .rank-level {
 
-    color:
-        #a78bfa;
+    color: #a78bfa;
 
-    text-align:
-        right;
+    text-align: right;
 }
 
 
@@ -446,32 +376,22 @@ button:active {
 @media (max-width: 600px) {
 
     #info {
-
-        padding:
-            8px
-            3px;
+        padding: 8px 3px;
     }
 
     .info-item {
-
-        font-size:
-            9px;
+        font-size: 9px;
     }
 
     .info-value {
-
-        font-size:
-            14px;
+        font-size: 14px;
     }
 
     button {
-
         padding:
-            9px
-            10px;
+            9px 10px;
 
-        font-size:
-            11px;
+        font-size: 11px;
     }
 
 }
@@ -487,9 +407,7 @@ button:active {
 <div id="game-wrapper">
 
 
-    <!-- ====================================================
-         닉네임
-    ===================================================== -->
+    <!-- 닉네임 -->
 
     <div id="player-area">
 
@@ -504,9 +422,7 @@ button:active {
     </div>
 
 
-    <!-- ====================================================
-         게임 정보
-    ===================================================== -->
+    <!-- 게임 정보 -->
 
     <div id="info">
 
@@ -582,9 +498,7 @@ button:active {
     </div>
 
 
-    <!-- ====================================================
-         게임 화면
-    ===================================================== -->
+    <!-- 게임 -->
 
     <canvas
         id="gameCanvas"
@@ -593,9 +507,7 @@ button:active {
     ></canvas>
 
 
-    <!-- ====================================================
-         버튼
-    ===================================================== -->
+    <!-- 버튼 -->
 
     <div id="buttons">
 
@@ -618,25 +530,21 @@ button:active {
     </div>
 
 
-    <!-- ====================================================
-         메시지
-    ===================================================== -->
+    <!-- 메시지 -->
 
     <div id="message">
         닉네임을 입력하고 게임을 시작하세요.
     </div>
 
 
-    <!-- ====================================================
-         아이템 설명
-    ===================================================== -->
+    <!-- 아이템 설명 -->
 
     <div id="item-help">
 
         🎁 <b>아이템</b><br>
 
         🔵 패들 확대 |
-        🟡 현재 레벨 동안 공 느려짐 |
+        🟡 슬로우 |
         ❤️ 목숨 +1 |
         🟣 멀티볼 |
         ⭐ 보너스 +50
@@ -645,6 +553,12 @@ button:active {
 
         벽돌을 깨면
         <b>25% 확률</b>로 아이템이 떨어집니다.
+
+        <br>
+
+        🟡 슬로우 아이템은
+        <b>현재 레벨 동안</b>
+        공 속도를 15% 감소시킵니다.
 
         <br>
 
@@ -657,9 +571,7 @@ button:active {
     </div>
 
 
-    <!-- ====================================================
-         랭킹
-    ===================================================== -->
+    <!-- 랭킹 -->
 
     <div id="rankingPanel">
 
@@ -771,25 +683,49 @@ const CANVAS_HEIGHT =
 
 
 /*
- * 요청사항:
+ * =========================================================
  *
- * 레벨이 올라가도 공 속도는 동일.
+ * 공 속도
+ *
+ * 기존:
+ * 380
+ *
+ * 변경:
+ * 520
+ *
+ * 레벨이 올라가도 속도는 520으로 유지.
+ *
+ * =========================================================
  */
 
 const BASE_BALL_SPEED =
-    380;
+    520;
 
 
 /*
- * 슬로우 아이템 효과.
+ * =========================================================
+ *
+ * 슬로우 배율
+ *
+ * 기존:
+ * 0.55
+ *
+ * 변경:
+ * 0.85
+ *
+ * 즉 15%만 느려짐.
+ *
+ * 520 × 0.85 = 442
+ *
+ * =========================================================
  */
 
 const SLOW_MULTIPLIER =
-    0.55;
+    0.85;
 
 
 /*
- * 최대 멀티볼.
+ * 최대 공 개수.
  */
 
 const MAX_BALLS =
@@ -805,11 +741,11 @@ const ITEM_DROP_CHANCE =
 
 
 /*
- * 랭킹 저장 키.
+ * 랭킹 키.
  */
 
 const RANKING_KEY =
-    "brick_breaker_ranking_v4";
+    "brick_breaker_ranking_v5";
 
 
 /* ==========================================================
@@ -837,26 +773,11 @@ let gameOver =
 let levelTransitioning =
     false;
 
-
-/*
- * requestAnimationFrame ID.
- */
-
 let animationId =
     null;
 
-
-/*
- * 이전 프레임 시간.
- */
-
 let lastTime =
     0;
-
-
-/*
- * 공/아이템/벽돌.
- */
 
 let balls =
     [];
@@ -869,16 +790,14 @@ let bricks =
 
 
 /* ==========================================================
-   키 입력
+   키
 ========================================================== */
 
 const keys = {
 
-    left:
-        false,
+    left: false,
 
-    right:
-        false
+    right: false
 
 };
 
@@ -890,15 +809,10 @@ const keys = {
 const effects = {
 
     /*
-     * true:
-     * 현재 레벨 동안 슬로우.
-     *
-     * false:
-     * 기본 속도.
+     * 현재 레벨에서만 유지.
      */
 
-    slowActive:
-        false
+    slowActive: false
 
 };
 
@@ -909,26 +823,20 @@ const effects = {
 
 const paddle = {
 
-    x:
-        0,
+    x: 0,
 
     y:
         CANVAS_HEIGHT - 35,
 
-    width:
-        120,
+    width: 120,
 
-    baseWidth:
-        120,
+    baseWidth: 120,
 
-    height:
-        14,
+    height: 14,
 
-    speed:
-        520,
+    speed: 520,
 
-    wideTimer:
-        0
+    wideTimer: 0
 
 };
 
@@ -995,7 +903,7 @@ const ITEM_TYPES = {
     SLOW: {
 
         name:
-            "현재 레벨 동안 느려짐",
+            "슬로우",
 
         icon:
             "🟡",
@@ -1090,9 +998,7 @@ function randomRange(
 
 
 /*
- * 중요:
- *
- * 모든 레벨의 기본 속도는 380.
+ * 모든 레벨에서 520.
  */
 
 function getBallSpeed() {
@@ -1103,7 +1009,7 @@ function getBallSpeed() {
 
 
 /* ==========================================================
-   랭킹 저장
+   랭킹
 ========================================================== */
 
 function readRanking() {
@@ -1117,9 +1023,7 @@ function readRanking() {
 
 
         if (!raw) {
-
             return [];
-
         }
 
 
@@ -1200,9 +1104,10 @@ function createBricks() {
 
 
     /*
-     * 레벨이 올라갈수록 벽돌 줄 수 증가.
-     *
-     * 최대 8줄.
+     * 레벨 1 = 5줄
+     * 레벨 2 = 6줄
+     * ...
+     * 최대 8줄
      */
 
     const rows =
@@ -1305,14 +1210,11 @@ function createBall(
 
     return {
 
-        x:
-            x,
+        x: x,
 
-        y:
-            y,
+        y: y,
 
-        radius:
-            8,
+        radius: 8,
 
         dx:
             Math.cos(angle) *
@@ -1334,8 +1236,9 @@ function createMainBall() {
 
 
     /*
-     * 너무 수평으로 날아가지 않도록
-     * 시작 각도를 제한.
+     * 시작 각도.
+     *
+     * 너무 수평으로 시작하지 않도록 제한.
      */
 
     const angle =
@@ -1366,9 +1269,7 @@ function createMainBall() {
 function resetBalls() {
 
     balls = [
-
         createMainBall()
-
     ];
 
 }
@@ -1404,17 +1305,14 @@ function resetPaddle() {
 
 function resetItems() {
 
-    /*
-     * 화면에 남아 있던 아이템 제거.
-     */
-
     items = [];
 
 
     /*
-     * 핵심:
+     * 레벨이 바뀔 때만 호출.
      *
-     * 레벨이 바뀌면 슬로우 해제.
+     * 따라서 슬로우 효과도
+     * 이곳에서 초기화.
      */
 
     effects.slowActive =
@@ -1424,7 +1322,7 @@ function resetItems() {
 
 
 /* ==========================================================
-   게임 전체 초기화
+   전체 초기화
 ========================================================== */
 
 function resetGame() {
@@ -1577,7 +1475,7 @@ function updateEffectUI() {
     ) {
 
         active.push(
-            "🟡 현재 레벨"
+            "🟡 Lv." + level
         );
 
     }
@@ -1595,7 +1493,7 @@ function updateEffectUI() {
 
 
 /* ==========================================================
-   게임 루프
+   게임 루프 제어
 ========================================================== */
 
 function stopGameLoop() {
@@ -1607,6 +1505,7 @@ function stopGameLoop() {
         cancelAnimationFrame(
             animationId
         );
+
 
         animationId =
             null;
@@ -1661,8 +1560,10 @@ function startGame() {
     gameRunning =
         true;
 
+
     paused =
         false;
+
 
     gameOver =
         false;
@@ -1753,7 +1654,7 @@ function restartGame() {
 
 
 /* ==========================================================
-   패들 업데이트
+   패들
 ========================================================== */
 
 function updatePaddle(
@@ -1880,10 +1781,6 @@ function destroyBrick(
     brick
 ) {
 
-    /*
-     * 이미 깨진 벽돌은 무시.
-     */
-
     if (
         !brick.alive
     ) {
@@ -1902,7 +1799,7 @@ function destroyBrick(
 
 
     /*
-     * 25% 확률로 아이템.
+     * 25% 아이템.
      */
 
     if (
@@ -1982,23 +1879,17 @@ function createItem(
 
     items.push({
 
-        x:
-            x,
+        x: x,
 
-        y:
-            y,
+        y: y,
 
-        width:
-            28,
+        width: 28,
 
-        height:
-            28,
+        height: 28,
 
-        speed:
-            110,
+        speed: 110,
 
-        type:
-            type
+        type: type
 
     });
 
@@ -2018,17 +1909,16 @@ function applyItem(
     ) {
 
 
-        /* --------------------------------------------------
-           패들 확대
-        -------------------------------------------------- */
+        /*
+         * 패들 확대
+         */
 
         case "WIDE":
 
             paddle.width =
 
                 Math.min(
-                    paddle.baseWidth *
-                    1.7,
+                    paddle.baseWidth * 1.7,
                     220
                 );
 
@@ -2057,16 +1947,22 @@ function applyItem(
             break;
 
 
-        /* --------------------------------------------------
-           슬로우
-        -------------------------------------------------- */
+        /*
+         * 슬로우
+         */
 
         case "SLOW":
 
             /*
-             * 절대로 타이머를 사용하지 않습니다.
+             * 타이머 없음.
              *
-             * 현재 레벨이 끝날 때까지 유지.
+             * 현재 레벨 동안 계속 유지.
+             *
+             * 일반 속도:
+             * 520
+             *
+             * 슬로우:
+             * 520 × 0.85 = 442
              */
 
             effects.slowActive =
@@ -2074,14 +1970,14 @@ function applyItem(
 
 
             messageElement.textContent =
-                "🟡 현재 레벨 동안 공이 느려집니다!";
+                "🟡 현재 레벨 동안 공 속도가 15% 감소합니다!";
 
             break;
 
 
-        /* --------------------------------------------------
-           목숨
-        -------------------------------------------------- */
+        /*
+         * 목숨
+         */
 
         case "LIFE":
 
@@ -2098,9 +1994,9 @@ function applyItem(
             break;
 
 
-        /* --------------------------------------------------
-           멀티볼
-        -------------------------------------------------- */
+        /*
+         * 멀티볼
+         */
 
         case "MULTI":
 
@@ -2113,9 +2009,9 @@ function applyItem(
             break;
 
 
-        /* --------------------------------------------------
-           점수
-        -------------------------------------------------- */
+        /*
+         * 점수
+         */
 
         case "SCORE":
 
@@ -2151,10 +2047,6 @@ function createMultiBalls() {
 
     }
 
-
-    /*
-     * 기존 공 중 하나 선택.
-     */
 
     const source =
 
@@ -2197,18 +2089,11 @@ function createMultiBalls() {
         );
 
 
-    /*
-     * 너무 가까운 각도로 생성하지 않도록
-     * 좌우로 분산.
-     */
-
     const angles = [
 
-        baseAngle -
-        0.40,
+        baseAngle - 0.40,
 
-        baseAngle +
-        0.40
+        baseAngle + 0.40
 
     ];
 
@@ -2316,7 +2201,7 @@ function updateItems(
 
 
         /*
-         * 화면 아래로 완전히 나가면 삭제.
+         * 화면 밖.
          */
 
         if (
@@ -2412,7 +2297,7 @@ function checkPaddleCollision(
 ) {
 
     /*
-     * 위에서 내려오는 공만 충돌.
+     * 내려오는 공만 충돌.
      */
 
     if (
@@ -2437,8 +2322,7 @@ function checkPaddleCollision(
 
 
     /*
-     * 패들 위쪽으로 공을 이동시켜
-     * 패들 내부에 박히는 문제 방지.
+     * 패들 위쪽으로 이동.
      */
 
     ball.y =
@@ -2487,10 +2371,6 @@ function checkPaddleCollision(
         );
 
 
-    /*
-     * 최대 약 60도까지 반사.
-     */
-
     const angle =
 
         relative *
@@ -2524,14 +2404,6 @@ function checkPaddleCollision(
 function checkBrickCollision(
     ball
 ) {
-
-    /*
-     * 한 이동 단계에서
-     * 최대 한 개의 벽돌만 처리.
-     *
-     * 이렇게 해야 한 번에 여러 벽돌이 깨지면서
-     * 공이 이상하게 튀는 현상을 줄일 수 있습니다.
-     */
 
     for (
         const brick of bricks
@@ -2574,64 +2446,96 @@ function checkBrickCollision(
 
 
         /*
-         * 어느 방향에서 충돌했는지 계산.
+         * 충돌 방향 계산.
          */
 
-        const previousX =
-            ball.x -
-            ball.dx *
-            0.0001;
+        const overlapLeft =
+
+            Math.abs(
+
+                (
+                    ball.x +
+                    ball.radius
+                ) -
+                brick.x
+
+            );
 
 
-        const previousY =
-            ball.y -
-            ball.dy *
-            0.0001;
+        const overlapRight =
+
+            Math.abs(
+
+                (
+                    brick.x +
+                    brick.width
+                ) -
+                (
+                    ball.x -
+                    ball.radius
+                )
+
+            );
 
 
-        const fromLeft =
+        const overlapTop =
 
-            previousX <
-            brick.x;
+            Math.abs(
 
+                (
+                    ball.y +
+                    ball.radius
+                ) -
+                brick.y
 
-        const fromRight =
-
-            previousX >
-            brick.x +
-            brick.width;
-
-
-        const fromTop =
-
-            previousY <
-            brick.y;
+            );
 
 
-        const fromBottom =
+        const overlapBottom =
 
-            previousY >
-            brick.y +
-            brick.height;
+            Math.abs(
+
+                (
+                    brick.y +
+                    brick.height
+                ) -
+                (
+                    ball.y -
+                    ball.radius
+                )
+
+            );
+
+
+        const minHorizontal =
+
+            Math.min(
+                overlapLeft,
+                overlapRight
+            );
+
+
+        const minVertical =
+
+            Math.min(
+                overlapTop,
+                overlapBottom
+            );
 
 
         /*
-         * 좌우 충돌.
+         * 수평 충돌.
          */
 
         if (
-            fromLeft ||
-            fromRight
+            minHorizontal <
+            minVertical
         ) {
 
             ball.dx =
                 -ball.dx;
 
         } else {
-
-            /*
-             * 기본은 상하 반사.
-             */
 
             ball.dy =
                 -ball.dy;
@@ -2640,26 +2544,40 @@ function checkBrickCollision(
 
 
         /*
-         * 공이 벽돌 내부에 남아 있지 않도록
-         * 충돌 직후 약간 밀어냅니다.
+         * 벽돌 내부에 들어간 경우
+         * 살짝 밖으로 밀어냅니다.
          */
 
         if (
-            fromTop
+            ball.dy > 0
         ) {
 
-            ball.y =
-                brick.y -
-                ball.radius;
+            if (
+                ball.y <
+                brick.y
+            ) {
 
-        } else if (
-            fromBottom
-        ) {
+                ball.y =
+                    brick.y -
+                    ball.radius;
 
-            ball.y =
+            }
+
+        } else {
+
+            if (
+                ball.y >
                 brick.y +
-                brick.height +
-                ball.radius;
+                brick.height
+            ) {
+
+                ball.y =
+
+                    brick.y +
+                    brick.height +
+                    ball.radius;
+
+            }
 
         }
 
@@ -2675,7 +2593,7 @@ function checkBrickCollision(
 
 
 /* ==========================================================
-   공 한 개 업데이트
+   공 업데이트
 ========================================================== */
 
 function updateSingleBall(
@@ -2684,10 +2602,9 @@ function updateSingleBall(
 ) {
 
     /*
-     * 슬로우 상태라면 55%.
+     * 슬로우:
      *
-     * 레벨이 바뀌면
-     * resetItems()에서 false가 됩니다.
+     * 520 × 0.85 = 442
      */
 
     const speedMultiplier =
@@ -2714,8 +2631,9 @@ function updateSingleBall(
 
 
     /*
-     * 빠른 공이 벽돌을 통과하는 것을 방지하기 위해
-     * 이동 거리를 여러 단계로 나눕니다.
+     * 빠른 공을 여러 번 나눠서 이동.
+     *
+     * 벽돌을 건너뛰는 현상을 줄입니다.
      */
 
     const distance =
@@ -2790,7 +2708,7 @@ function updateSingleBall(
 
 
         /*
-         * 화면 아래로 떨어졌는지 확인.
+         * 공이 화면 아래로 떨어짐.
          */
 
         if (
@@ -2812,7 +2730,7 @@ function updateSingleBall(
 
 
 /* ==========================================================
-   모든 공 업데이트
+   공 전체 업데이트
 ========================================================== */
 
 function updateBalls(
@@ -2820,8 +2738,7 @@ function updateBalls(
 ) {
 
     /*
-     * 뒤에서부터 제거하여
-     * 배열 인덱스 문제 방지.
+     * 뒤에서부터 삭제.
      */
 
     for (
@@ -2853,10 +2770,8 @@ function updateBalls(
 
 
     /*
-     * 멀티볼 중 공 하나가 없어졌다고
-     * 목숨을 잃으면 안 됩니다.
-     *
-     * 공이 전부 사라졌을 때만 목숨 감소.
+     * 공이 전부 없어졌을 때만
+     * 목숨 감소.
      */
 
     if (
@@ -2871,7 +2786,7 @@ function updateBalls(
 
 
 /* ==========================================================
-   목숨 감소
+   목숨
 ========================================================== */
 
 function loseLife() {
@@ -2907,14 +2822,12 @@ function loseLife() {
 
 
     /*
-     * 같은 레벨에서 다시 시작.
+     * 같은 레벨에서 재시작.
      *
-     * 중요:
+     * 여기서는 resetItems()를 호출하지 않습니다.
      *
-     * resetItems()를 호출하지 않습니다.
-     *
-     * 따라서 슬로우 아이템을 먹은 상태였다면
-     * 같은 레벨에서는 계속 슬로우가 유지됩니다.
+     * 따라서 슬로우 상태라면
+     * 같은 레벨에서 계속 유지됩니다.
      */
 
     resetBalls();
@@ -2923,7 +2836,7 @@ function loseLife() {
 
 
     /*
-     * 떨어지고 있던 아이템은 제거.
+     * 떨어지고 있던 아이템 제거.
      */
 
     items = [];
@@ -2992,9 +2905,9 @@ function updateEffects(
 
 
     /*
-     * 슬로우는 여기서 감소시키지 않습니다.
+     * 슬로우는 타이머가 없습니다.
      *
-     * 현재 레벨 전체 동안 유지되기 때문입니다.
+     * 현재 레벨 전체 동안 유지됩니다.
      */
 
     updateEffectUI();
@@ -3019,10 +2932,6 @@ function nextLevel() {
     }
 
 
-    /*
-     * 중복 레벨업 방지.
-     */
-
     levelTransitioning =
         true;
 
@@ -3046,25 +2955,25 @@ function nextLevel() {
 
 
     /*
-     * 새 레벨의 공.
+     * 새 공.
      *
-     * getBallSpeed()는 항상 380.
+     * 항상 520.
      */
 
     resetBalls();
 
 
     /*
-     * 패들 효과 초기화.
+     * 패들 초기화.
      */
 
     resetPaddle();
 
 
     /*
-     * 중요:
+     * 아이템 초기화.
      *
-     * 여기서 slowActive = false.
+     * 여기서 슬로우가 풀립니다.
      */
 
     resetItems();
@@ -3079,11 +2988,6 @@ function nextLevel() {
 
     updateUI();
 
-
-    /*
-     * 현재 프레임이 완전히 끝난 뒤
-     * 다시 레벨 전환 가능하도록 설정.
-     */
 
     requestAnimationFrame(
         () => {
@@ -3115,8 +3019,10 @@ function endGame() {
     gameOver =
         true;
 
+
     gameRunning =
         false;
+
 
     paused =
         false;
@@ -3202,14 +3108,6 @@ function saveCurrentScore() {
     });
 
 
-    /*
-     * 점수 높은 순.
-     *
-     * 점수가 같으면 레벨 높은 순.
-     *
-     * 그것도 같으면 먼저 기록한 사람이 위.
-     */
-
     ranking.sort(
         (a, b) => {
 
@@ -3269,7 +3167,7 @@ function saveCurrentScore() {
 
 
 /* ==========================================================
-   HTML 안전 처리
+   HTML 이스케이프
 ========================================================== */
 
 function escapeHtml(
@@ -3326,8 +3224,7 @@ function showRanking() {
 
         rankingList.innerHTML =
 
-            "<div " +
-            "style='" +
+            "<div style='" +
             "text-align:center;" +
             "color:#94a3b8;" +
             "padding:10px;" +
@@ -3428,7 +3325,7 @@ function toggleRanking() {
 
 
 /* ==========================================================
-   그리기 - 둥근 사각형
+   둥근 사각형
 ========================================================== */
 
 function roundedRect(
@@ -3606,7 +3503,7 @@ function drawBricks() {
 
 
 /* ==========================================================
-   패들 그리기
+   패들
 ========================================================== */
 
 function drawPaddle() {
@@ -3679,7 +3576,7 @@ function drawPaddle() {
 
 
 /* ==========================================================
-   공 그리기
+   공
 ========================================================== */
 
 function drawBalls() {
@@ -3735,7 +3632,7 @@ function drawBalls() {
 
 
 /* ==========================================================
-   아이템 그리기
+   아이템
 ========================================================== */
 
 function drawItems() {
@@ -3863,10 +3760,6 @@ document.addEventListener(
     "keydown",
     event => {
 
-        /*
-         * 왼쪽.
-         */
-
         if (
             event.key ===
             "ArrowLeft"
@@ -3881,10 +3774,6 @@ document.addEventListener(
 
         }
 
-
-        /*
-         * 오른쪽.
-         */
 
         if (
             event.key ===
@@ -3902,18 +3791,14 @@ document.addEventListener(
 
 
         /*
-         * Space = 일시정지.
+         * Space:
+         * 일시정지 / 다시 시작.
          */
 
         if (
             event.code ===
             "Space"
         ) {
-
-            /*
-             * 닉네임 입력 중에는
-             * 스페이스로 일시정지하지 않음.
-             */
 
             if (
                 document.activeElement !==
@@ -3932,7 +3817,8 @@ document.addEventListener(
 
 
         /*
-         * Enter = 시작.
+         * Enter:
+         * 게임 시작.
          */
 
         if (
@@ -3941,27 +3827,10 @@ document.addEventListener(
         ) {
 
             if (
-                document.activeElement ===
-                playerNameInput
+                !gameRunning
             ) {
 
-                if (
-                    !gameRunning
-                ) {
-
-                    startGame();
-
-                }
-
-            } else {
-
-                if (
-                    !gameRunning
-                ) {
-
-                    startGame();
-
-                }
+                startGame();
 
             }
 
@@ -4001,8 +3870,8 @@ document.addEventListener(
 
 
 /*
- * iframe/window 포커스를 잃었을 때
- * 키가 계속 눌린 상태로 남지 않도록 처리.
+ * 창 포커스를 잃으면
+ * 이동키를 초기화.
  */
 
 window.addEventListener(
@@ -4115,8 +3984,7 @@ canvas.addEventListener(
 
     },
     {
-        passive:
-            false
+        passive: false
     }
 );
 
@@ -4143,8 +4011,7 @@ canvas.addEventListener(
 
     },
     {
-        passive:
-            false
+        passive: false
     }
 );
 
@@ -4178,16 +4045,12 @@ rankingBtn.addEventListener(
 
 
 /* ==========================================================
-   메인 게임 루프
+   게임 루프
 ========================================================== */
 
 function gameLoop(
     timestamp
 ) {
-
-    /*
-     * 실행 조건 재확인.
-     */
 
     if (
         !gameRunning ||
@@ -4204,7 +4067,7 @@ function gameLoop(
 
 
     /*
-     * 이전 프레임과 시간 차이.
+     * 프레임 시간.
      */
 
     let dt =
@@ -4216,8 +4079,8 @@ function gameLoop(
 
 
     /*
-     * 브라우저 탭을 벗어났다가 돌아오는 등의
-     * 큰 시간 차이를 제한.
+     * 브라우저 탭을 나갔다 돌아왔을 때
+     * 공이 순간이동하지 않도록 제한.
      */
 
     dt =
@@ -4270,8 +4133,8 @@ function gameLoop(
 
 
     /*
-     * 게임 중이고,
-     * 모든 벽돌이 깨졌으면 다음 레벨.
+     * 벽돌을 전부 깼으면
+     * 다음 레벨.
      */
 
     if (
@@ -4327,7 +4190,7 @@ function gameLoop(
 
 
 /* ==========================================================
-   초기 실행
+   시작
 ========================================================== */
 
 resetGame();
@@ -4344,7 +4207,7 @@ showRanking();
 
 
 # ============================================================
-# Streamlit에 게임 표시
+# 게임 출력
 # ============================================================
 
 components.html(
